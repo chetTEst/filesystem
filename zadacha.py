@@ -33,7 +33,7 @@ else:
                 os.mkdir(folders[number_folders])
                 os.chdir(os.getcwd()+"/"+folders[number_folders])
                 f=open(folders[number_folders+1]+".txt","w")
-                for simvol in range(baza_chisel[int(sys.argv[1])][i]): 
+                for simvol in range(baza_chisel[int(sys.argv[1])-1][i]): 
                     f.write(chr(random.randint(97,121)))
                 f.close()
         else:

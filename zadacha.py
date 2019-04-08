@@ -37,4 +37,4 @@ else:
                     f.write(chr(random.randint(97,121)))
                 f.close()
         else:
-        	print("You are not in the directory named hochu5")
+        	print("You are not in the directory named hochu5 or not arguments")

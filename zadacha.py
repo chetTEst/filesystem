@@ -2,8 +2,6 @@ import random
 import sys
 import key
 import os
-super_file=random.randint(2,5)
-print(os.path.basename(os.getcwd()))
 if key.key!=1:
     print("Where is file key? Chetverov is angry!!!")
 else:
@@ -36,5 +34,6 @@ else:
                 for simvol in range(baza_chisel[int(sys.argv[1])-1][i]): 
                     f.write(chr(random.randint(97,121)))
                 f.close()
+            print("file system is ready")
         else:
         	print("You are not in the directory named hochu5 or not arguments")

@@ -21,4 +21,4 @@ rm -кf /var/lib/mysql
 deluser --remove-home mysqlrm -rf /var/log/mysql
 delgroup mysql
 find / -iname ‘mysql*’ -exec rm -rf {} \;
-sudo apt-get install mysql mysql-common mysql-server* mysql-client*
+sudo apt-get install mysql-common mysql-server* mysql-client*

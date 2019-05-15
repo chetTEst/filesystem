@@ -28,4 +28,7 @@ find / -iname ‘mysql*’ -exec rm -rf {} \;
 rm -rf /etc/apparmor.d/abstractions/mysql /etc/apparmor.d/cache/usr.sbin.mysqld /etc/mysql /var/lib/mysql /var/log/mysql* /var/log/upstart/mysql.log* /var/run/mysqld
 sudo find / -name .mysql_history -delete
 apt-get install mysql-common mysql-server* mysql-client*
+mysql_secure_installation
 apt-get install phpmyadmin
+phpenmod mcrypt
+systemctl restart php7.0-fpm

@@ -3,8 +3,8 @@ kill $(pgrep mysql)
 apt-get clean
 apt-get update
 dpkg -r phpmyadmin
-dpkg -r mysql-client-5.7
-dpkg -r mysql-server-5.7
+dpkg -r mysql-client-\*
+dpkg -r mysql-server-\*
 dpkg -r libmysqlclient20:i386
 dpkg -r libmysqlclient20:amd64
 dpkg -r libmysqlclient18:amd64

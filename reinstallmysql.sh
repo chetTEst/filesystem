@@ -19,8 +19,8 @@ aptitude remove mysql-client
 aptitude remove mysql-server
 aptitude remove mysql-common
 aptitude remove phpmyadmin
-rm -rf /etc/mysql
-rm -кf /var/lib/mysql
+rm -rf /etc/mysql*
+rm -кf /var/lib/mysql*
 deluser --remove-home mysqlrm -rf /var/log/mysql
 delgroup mysql
 find / -iname ‘mysql*’ -exec rm -rf {} \;

@@ -18,11 +18,11 @@ apt-get install aptitude
 aptitude remove mysql-client 
 aptitude remove mysql-server
 aptitude remove mysql-common
-aptitude phpmyadmin
+aptitude remove phpmyadmin
 rm -rf /etc/mysql
 rm -кf /var/lib/mysql
 deluser --remove-home mysqlrm -rf /var/log/mysql
 delgroup mysql
 find / -iname ‘mysql*’ -exec rm -rf {} \;
 apt-get install mysql-common mysql-server* mysql-client*
-apt-get phpmyadmin
+apt-get install phpmyadmin

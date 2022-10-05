@@ -3,7 +3,7 @@ import os
 import sys
 
 if len(sys.argv) == 1:
-    print("Отсутсвуют параметры запуска")
+    print("Отсутсвуют параметры запуска!")
     sys.exit(0)
 
 index_html = """

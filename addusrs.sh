@@ -13,5 +13,6 @@ ln -s /bin/cd /path/to/limited_user_home/allowed_bin/wc
 ln -s /bin/cd /path/to/limited_user_home/allowed_bin/pwd
 ln -s /bin/cd /path/to/limited_user_home/allowed_bin/cp
 ln -s /bin/cd /path/to/limited_user_home/allowed_bin/cp
+ln -s /bin/cd /path/to/limited_user_home/allowed_bin/nano
 echo 'PATH=$HOME/allowed_bin' >> /home/uchenik$i/.bashrc
 done

@@ -1,0 +1,79 @@
+#!/bin/bash
+# Ограниченная оболочка для исследования домашней директории
+
+# Цвета
+GREEN="\033[0;32m"
+YELLOW="\033[1;33m"
+RESET="\033[0m"
+
+export TERM=xterm-256color
+
+# Домашняя директория пользователя
+user_home=$(eval echo "~$USER")
+echo "Разрешены только команды ls, cd, pwd, cat, wc"
+current_dir=$(pwd)
+# Заменяем полный путь к домашней папке на ~
+current_dir=${current_dir/$user_home/\~}
+sleep 1
+printf "${YELLOW}%s${RESET} ${GREEN}limited_shell>${RESET} " "${current_dir}"
+
+trap "printf '\n'; printf \"${YELLOW}%s${RESET} ${GREEN}limited_shell>${RESET} \" \"\${current_dir}\";" SIGINT
+
+
+is_path_allowed() {
+    local target_path=$(realpath "$1" 2> /dev/null)
+    if [[ "$target_path" == "$user_home"* ]]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+
+while true; do
+    current_dir=$(pwd)
+    # Заменяем полный путь к домашней папке на ~
+    current_dir=${current_dir/$user_home/\~}
+    
+    printf "${YELLOW}%s${RESET} ${GREEN}limited_shell>${RESET} " "${current_dir}"
+    read -e -r command args
+    command=$(echo $input | awk '{print $1}')
+    args=$(echo $input | awk '{$1=""; print $0}' | sed 's/^[[:space:]]*//')
+
+    case "$command" in
+        cd)
+            if [[ -z "$args" ]]; then
+                args="$user_home"
+            fi
+
+            if is_path_allowed "$args"; then
+                builtin cd "$args"
+            else
+                echo "Доступ к этой директории запрещен!"
+            fi
+            ;;
+        ls)
+            if [[ -z "$args" ]] || is_path_allowed "$args"; then
+                ls --color=auto $args
+            else
+                echo "Доступ к этой директории запрещен!"
+            fi
+            ;;
+        cat)
+            if [[ -z "$args" ]] || is_path_allowed "$args"; then
+                cat $args
+            else
+                echo "Доступ к этой директории запрещен!"
+            fi
+            ;;
+        cp|wc|pwd|nano)
+            "$command" $args
+            ;;
+        exit)
+            exit 0
+            ;;
+        *)
+            echo "Разрешены только команды ls, cd, pwd, cat, wc"
+            ;;
+    esac
+done

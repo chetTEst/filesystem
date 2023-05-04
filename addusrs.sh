@@ -5,6 +5,7 @@ apt install wget acl
 wget https://raw.githubusercontent.com/chetTEst/filesystem/master/makeManyFile.py
 wget https://raw.githubusercontent.com/chetTEst/filesystem/master/limited_shell
 mv $script_dir/limited_shell /usr/local/bin/limited_shell
+chmod +x /usr/local/bin/limited_shell
 
 for ((i=1;i<8;i++))
   do
@@ -27,5 +28,5 @@ for ((i=1;i<8;i++))
     ln -s /bin/wc /home/filesystemTask/uchenik$i/bin/wc
     ln -s /bin/pwd /home/filesystemTask/uchenik$i/bin/pwd
     ln -s /bin/nano /home/filesystemTask/uchenik$i/bin/nano
-	  echo 'export PATH' >> /home/filesystemTask/uchenik$i/.bashrc
+    echo 'export PATH' >> /home/filesystemTask/uchenik$i/.bashrc
   done

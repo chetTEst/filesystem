@@ -8,14 +8,13 @@ mkdir /home/uchenik$i/hochu5
 python3 /root/makeManyFile.py $i /home/uchenik$i/hochu5
 chmod -R a-w /home/uchenik$i
 chown -R uchenik$i:uchenik$i /home/uchenik$i
-ln -s /bin/ls /path/to/limited_user_home/allowed_bin/ls
-ln -s /bin/cat /path/to/limited_user_home/allowed_bin/cat
-ln -s /bin/cd /path/to/limited_user_home/allowed_bin/cd
-ln -s /bin/cd /path/to/limited_user_home/allowed_bin/wc
-ln -s /bin/cd /path/to/limited_user_home/allowed_bin/pwd
-ln -s /bin/cd /path/to/limited_user_home/allowed_bin/cp
-ln -s /bin/cd /path/to/limited_user_home/allowed_bin/cp
-ln -s /bin/cd /path/to/limited_user_home/allowed_bin/nano
+ln -s /bin/ls /home/uchenik$i/ls
+ln -s /bin/cat /home/uchenik$i/cat
+ln -s /bin/cd /home/uchenik$i/cd
+ln -s /bin/cd /home/uchenik$i/wc
+ln -s /bin/cd /home/uchenik$i/pwd
+ln -s /bin/cd /home/uchenik$i/cp
+ln -s /bin/cd /home/uchenik$i/nano
 echo 'PATH=$HOME/allowed_bin' >> /home/uchenik$i/.bashrc
 
 done

@@ -15,6 +15,6 @@ ln -s /bin/cd /home/uchenik$i/wc
 ln -s /bin/cd /home/uchenik$i/pwd
 ln -s /bin/cd /home/uchenik$i/cp
 ln -s /bin/cd /home/uchenik$i/nano
-echo 'PATH=$HOME/allowed_bin' >> /home/uchenik$i/.bashrc
+echo 'PATH=$HOME/' >> /home/uchenik$i/.bashrc
 
 done
